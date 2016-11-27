@@ -36,7 +36,7 @@
 #define __vstgui__
 
 // define global defines
-#if WIN32
+#if defined(WIN32) || defined(_WIN64)
 	#define WINDOWS 1
 #elif SGI | SUN
 	#define MOTIF 1

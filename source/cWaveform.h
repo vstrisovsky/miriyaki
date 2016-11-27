@@ -63,17 +63,8 @@ private:
 };
 
 inline int cWaveform::lrint (double const x)
-{ 
-	int n;
-	#if defined(__unix__) || defined(__GNUC__)
-		// 32-bit Linux, Gnu/AT&T syntax:
-		__asm ("fldl %1 \n fistpl %0 " : "=m"(n) : "m"(x) : "memory" );
-	#else
-		// 32-bit Windows, Intel/MASM syntax:
-		__asm fld qword ptr x;
-		__asm fistp dword ptr n;
-	#endif
-	return n;
+{
+	return glrint(x);
 }
  
 #endif

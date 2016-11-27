@@ -54,7 +54,7 @@ VST_EXPORT AEffect* main_plugin (audioMasterCallback audioMaster) { return VSTPl
 } // extern "C"
 
 //------------------------------------------------------------------------
-#if WIN32
+#if WIN32 || _WIN64
 #include <windows.h>
 void* hInstance;
 

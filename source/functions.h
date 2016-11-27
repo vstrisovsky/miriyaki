@@ -28,6 +28,8 @@ inline int glrint (double const x)
    #if defined(__unix__) || defined(__GNUC__)
       // 32-bit Linux, Gnu/AT&T syntax:
       __asm ("fldl %1 \n fistpl %0 " : "=m"(n) : "m"(x) : "memory" );
+   #elif defined(_WIN64)
+      n = x;
    #else
       // 32-bit Windows, Intel/MASM syntax:
       __asm fld qword ptr x;
